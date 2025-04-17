@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Walkers</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
+  </head>
+
+  <body style="overflow: hidden; margin: 0; padding: 0">
+    <div id="main-container">
+      <div id="editor-container">
+        <div id="editor"></div>
+      </div>
+      <div id="canvas-container"></div>
+      <button id="fullscreen-button" class="fullscreen-button" onclick="toggleFullscreen()">
+        <img src="./static/img/fullscreen.svg" alt="Fullscreen" class="fullscreen-icon" />
+      </button>
+    </div>
+    <script src="/libraries/ace/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="static/sketches/caterpillar.js" defer></script>
+  </body>
+</html>
