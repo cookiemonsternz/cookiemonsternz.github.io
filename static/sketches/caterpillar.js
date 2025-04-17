@@ -118,6 +118,18 @@ function resetSketch() {
 let f = new Function("pos", 'let scale = 0.01; return noise(pos.x * scale, pos.y * scale);');
 
 function sdf(pos) {
+  if (!f) {
+    console.log("no f");
+    return 0;
+  }
+  if (typeof f !== 'function') {
+    console.log("no f");
+    return 0;
+  }
+  if (!pos) {
+    console.log("no pos");
+    return 0;
+  }
   //return noise(pos.x * scale, pos.y * scale)
   return f(pos);
 }
@@ -142,6 +154,8 @@ let dest_color = color(0.0, 255.0, 128.0, 120.0);
 function sdf(pos) {
     let scale = 0.01;
     return noise(pos.x * scale, pos.y * scale);
+    // return Math.sin(pos.x * scale * 0.1) + Math.cos(pos.y * scale * 0.1);
+    // return Math.tan(pos.x * scale) + Math.tan(pos.y * scale);
 }`
 editor.setValue(defaultCode, -1)
 
