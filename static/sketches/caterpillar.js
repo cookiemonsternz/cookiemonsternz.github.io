@@ -113,6 +113,13 @@ function resetSketch() {
     eval(colorDecs[i]);
   }
   background(bgColor);
+  // Reset walkers
+  for (let i = 0; i < walkers.length; i++) {
+    deleteWalker(walkers[i]);
+  }
+  for (var i = 0; i < 1000; i++) {
+    walkers[i] = new Walker(createVector(Math.random() * width, Math.random() * height), 0, 0.4);
+  }
 }
 
 let f = new Function("pos", 'let scale = 0.01; return noise(pos.x * scale, pos.y * scale);');
@@ -154,8 +161,9 @@ let dest_color = color(0.0, 255.0, 128.0, 120.0);
 function sdf(pos) {
     let scale = 0.01;
     return noise(pos.x * scale, pos.y * scale);
-    // return Math.sin(pos.x * scale * 0.1) + Math.cos(pos.y * scale * 0.1);
-    // return Math.tan(pos.x * scale) + Math.tan(pos.y * scale);
+    // return Math.sin(pos.x * scale * 5) + Math.cos(pos.y * scale * 5);
+    // return Math.tan(pos.x * scale) / Math.tan(pos.y * scale);
+    // return Math.max(Math.tan(pos.x * scale), Math.sin(pos.y * scale));
 }`
 editor.setValue(defaultCode, -1)
 
