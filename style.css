@@ -41,6 +41,8 @@
     cursor: pointer;
     background: none;
     border: none;
+    color: #fff;
+    filter: invert(80%);
 }
 
 #fullscreen-button img {
