@@ -24,6 +24,14 @@ function hasAllSemicolons(code) {
     .every(line => /;\s*$/.test(line));
 };
 
+function getNumDir(code) {
+  const match = code.match(/\b(?:const|let|var)\s+num_dir\s*=\s*(\d+);/);
+  if (match) {
+    return parseInt(match[1], 10);
+  }
+  return null;
+}
+
 function validateDeclarations(declarations) {
   let REQUIRED_COLOR_VARS = ['bg_color', 'start_color', 'dest_color'];
   const declaredVars = declarations.map(line => {
@@ -86,6 +94,12 @@ function compile(text) {
       errorToast(e)
       return;
     }
+    if (getNumDir(text) !== null) {
+      num_dir = getNumDir(text);
+    } else {
+      num_dir = 16;
+    }
+    console.log(num_dir)
   } catch {
     errorToast(null)
     return;
@@ -152,6 +166,10 @@ let defaultCode =
 // use semicolons to end lines or else my regex breaks
 // all standard js libraries are available + p5.js 
 // e.g date, math, string, etc
+
+// number of directions each walker checks
+// lower number = more performance
+const num_dir = 36;
 
 let bg_color = color('#123333');
 let start_color = color('#385B99');
@@ -230,7 +248,7 @@ class Walker {
   getIdealNeightbour() {
     var currentHighest = -Infinity;
     var idealNeighbour = null;
-    for (var i = 0; i < 36; i++) {
+    for (var i = 0; i < num_dir; i++) {
       let direction = p5.Vector.random2D();
       var x = p5.Vector.add(this.pos, p5.Vector.mult(direction, this.jumpDist));
       let val = sdf(x);
@@ -261,6 +279,7 @@ let startColor
 
 var walkers = [];
 const jumpSize = 5;
+var num_dir = 36;
 
 function deleteWalker(walker) {
   let index = walkers.indexOf(walker);
