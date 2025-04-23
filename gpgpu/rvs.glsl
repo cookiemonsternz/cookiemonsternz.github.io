@@ -3,8 +3,8 @@ attribute vec2 textureCoord; // Texture coordinates
 attribute float a_index;
 uniform sampler2D texture; // Texture sampler
 uniform mat4 mvpMatrix; // Model-View-Projection matrix
-const vec4 startColor = vec4(0.22, 0.357, 0.6, 0.01); // Start color for the gradient
-const vec4 endColor = vec4(0.0, 1.0, 0.5, 0.01); // Color uniform for the fragment shader
+uniform vec4 startColor; // Start color for the gradient
+uniform vec4 endColor; // Color uniform for the fragment shader
 varying vec2 vTextureCoord; // Varying variable to pass texture coordinates to fragment shader
 varying vec4 vColor;
 
@@ -29,19 +29,20 @@ vec4 packFloat(float value) {
 }
 
 vec2 getPosValue(vec2 uv_pixel) {
-    vec2 uv_x;
-    vec2 uv_y;
+    float is_left = step(uv_pixel.x, 0.5);
+    float is_right = 1.0 - is_left;
 
-    if (uv_pixel.x < 0.5) { // x pos
-        uv_x = uv_pixel;
-        uv_y = vec2(uv_pixel.x + 0.5, uv_pixel.y);
-    } else { // y pos
-        uv_x = vec2(uv_pixel.x - 0.5, uv_pixel.y);
-        uv_y = uv_pixel;
-    }
+    vec2 uv_x = uv_pixel + vec2(is_right * -0.5, 0.0); // x pos
+    vec2 uv_y = uv_pixel - vec2(is_left * 0.5, 0.0); // y pos
 
-    uv_x = clamp(uv_x, 0.0, 1.0);
-    uv_y = clamp(uv_y, 0.0, 1.0);
+    // if (uv_pixel.x < 0.5) { // x pos
+    //     uv_x = uv_pixel;
+    //     uv_y = vec2(uv_pixel.x + 0.5, uv_pixel.y);
+    // } else { // y pos
+    //     uv_x = vec2(uv_pixel.x - 0.5, uv_pixel.y);
+    //     uv_y = uv_pixel;
+    // }
+
 
     vec4 color_x = texture2D(texture, uv_x);
     vec4 color_y = texture2D(texture, uv_y);
@@ -81,5 +82,5 @@ void main() {
     float ypos = pos.y; // Get y position from texture
     vColor = lerp_color(startColor, endColor, get_utils_values(uvX)); // Get color from utils quadrant - lifetime
     gl_Position = mvpMatrix * vec4(xpos, ypos, 0.0, 1.0); // Set position
-    gl_PointSize = 0.1; // Set point size to 1.0
+    gl_PointSize = 2.0; // Set point size to 1.0
 }

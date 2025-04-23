@@ -4,8 +4,8 @@ uniform sampler2D texture; // Texture sampler
 varying vec3 vPosition;
 varying vec2 vTextureCoord;
 
-const int num_directions = 300;
-const float jump_distance = 0.0001;
+const int num_directions = 200;
+const float jump_distance = 0.0005;
 
 float unpackFloat(vec4 c_normalized) {
     const float factor = 255.0 / 256.0;
@@ -110,7 +110,7 @@ vec2 getIdealNeighbour(vec2 uv_pixel, vec2 current_pos) {
 bool isStuck(vec2 uv_pixel) {
     vec2 current_pos = getPosValue(uv_pixel);
     vec2 idealNeighbour = getIdealNeighbour(uv_pixel, current_pos);
-    return sdf(idealNeighbour) <= sdf(current_pos) + 1e-6;
+    return sdf(idealNeighbour) <= sdf(current_pos) + 0.0001;
 }
 
 vec2 getNewPos(vec2 uv_pixel, bool isCheck) {
@@ -158,14 +158,13 @@ void main() {
         } else { // y pos
             gl_FragColor = packFloat(newPos.y);
         }
-        vec2 current_pos = getPosValue(uv);
     } else {
         vec2 uv_pos = uv - vec2(0.0, 0.5);
         if(isStuck(uv_pos) || unpackFloat(texture2D(texture, uv)) > 3.0) {
             gl_FragColor = resetLife(uv);
         } else {
             float current_life = unpackFloat(texture2D(texture, uv));
-            gl_FragColor = packFloat(current_life + 0.001);
+            gl_FragColor = packFloat(current_life + 0.01);
         }
     }
     // gl_FragColor = packFloat(current_pos.x); // Get position value from texture

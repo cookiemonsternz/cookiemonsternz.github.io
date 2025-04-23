@@ -518,7 +518,7 @@ function extractFunctionBody(text) {
       console.log(functions[randI]);
       f = new Function("pos", functions[randI]);
     }
-    setTimeout(change_colors, 30000);
+    setTimeout(change_colors, 10000);
   }
   
   const step = 3.0;// Keep your original step size for how much *potential* alpha to add per frame
