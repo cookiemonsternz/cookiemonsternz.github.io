@@ -1,51 +1,49 @@
-#main-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: #f0f0f0;
+/*
+#272822 - light bg
+#202020 - dark bg
+#f8f8f2 - light text
+*/
+body {
+    background-color: #272822;
+    color: #E4E3D3;
+    font-family: "Nunito", sans-serif;
+    margin: 0;
 }
 
-#editor-container {
-    width: 40%;
-    height: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: #fff;
-}
-
-#canvas-container {
-    width: 60%;
-    height: 100%;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #fff;
-}
-
-#editor { 
+.navbar {
+    font-family: "Nunito", sans-serif;
+    z-index: 3;
     position: absolute;
     top: 0;
     left: 0;
-    width: 40%;
-    height: 100%;
-    z-index: 0;
-    border-right: 3px solid #202020;
+    right: 0;
+    height: 10%;
+    background-color: #181b1a;
+    padding: 0px 50px;
+    align-items: center;
 }
 
-#fullscreen-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: #fff;
-    filter: invert(80%);
+.navbar-links {
+    margin-top: 1.25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#fullscreen-button img {
-    width: 24px;
-    height: 24px;
+.navbar-links a {
+    color: #f8f8f2;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+h1 {
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+}
+
+h3 {
+    margin: 0;
 }

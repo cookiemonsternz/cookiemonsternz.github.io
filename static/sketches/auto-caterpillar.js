@@ -225,6 +225,8 @@ function extractFunctionBody(text) {
       /* IE11 */
       document.msExitFullscreen();
     }
+    document.getElementsByTagName("nav")[0].style.display = "block";
+    document.getElementById("fullscreen-button").style.top = "calc(10% + 10px)";
   }
   
   function openFullscreen() {
@@ -237,6 +239,8 @@ function extractFunctionBody(text) {
       /* IE11 */
       document.documentElement.msRequestFullscreen();
     }
+    document.getElementsByTagName("nav")[0].style.display = "none";
+    document.getElementById("fullscreen-button").style.top = "10px";
   }
   
   class Walker {
@@ -479,8 +483,11 @@ function extractFunctionBody(text) {
     return brightness / pallete.length;
   }
   
-  
+  let firstLoad = true
   function draw() {
+    if (firstLoad) {
+      return;
+    }
     noStroke();
   
     for (let i = walkers.length - 1; i >= 0; i--) {
@@ -528,6 +535,7 @@ function extractFunctionBody(text) {
   function fade_bg(i) {
     colorMode(RGB, 255);
     if (i > totalSteps) {
+      firstLoad = false;
       return;
     }
     console.log(bgColor.toString());

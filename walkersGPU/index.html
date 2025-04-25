@@ -9,6 +9,9 @@
   <head>
     <title>Walkers GPGPU</title>
     <link rel="icon" href="../static/favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <script id="wvs" src="wvs.glsl" type="x-shader/x-vertex"></script>
     <script id="wfs" src="wfs.glsl" type="x-shader/x-fragment"></script>
@@ -16,6 +19,25 @@
     <script id="rfs" src="rfs.glsl" type="x-shader/x-fragment"></script>
   </head>
   <body>
+    <nav class="navbar">  
+      <div class="navbar-links">
+          <a href="/">
+              <h1>Walkers</h1>
+          </a>
+          <a href="/walkersGPU/">
+              <h3>GPU</h2>
+          </a>
+          <a href="/walkersCPU/">
+              <h3>CPU</h2>
+          </a>
+          <a href="/auto/">
+              <h3>CPU AUTO</h2>
+          </a>
+          <a href="https://journey.hackclub.com/projects/50">
+              <img src="https://journey.hackclub.com/icon.png" alt="Journeybook" class="journeybook-icon" />
+          </a>
+      </div>
+    </nav>
     <button id="fullscreen-button" class="fullscreen-button" onclick="toggleFullscreen()">
       <img src="./static/fullscreen.svg" alt="Fullscreen" class="fullscreen-icon" />
     </button>

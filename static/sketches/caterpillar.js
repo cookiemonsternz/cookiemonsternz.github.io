@@ -218,22 +218,34 @@ window.addEventListener('resize', () => {
 
 function closeFullscreen() {
   if (document.exitFullscreen) {
-    document.exitFullscreen();
-  } else if (document.webkitExitFullscreen) { /* Safari */
-    document.webkitExitFullscreen();
-  } else if (document.msExitFullscreen) { /* IE11 */
-    document.msExitFullscreen();
+      document.exitFullscreen();
   }
-}
+  else if (document.webkitExitFullscreen) { /* Safari */
+      document.webkitExitFullscreen();
+  }
+  else if (document.msExitFullscreen) { /* IE11 */
+      document.msExitFullscreen();
+  }
+  document.getElementsByTagName("nav")[0].style.display = "block";
+  document.getElementById("fullscreen-button").style.top = "calc(10% + 10px)";
+  document.getElementById("editor").style.height = "90%";
+  document.getElementById("editor").style.bottom = "0px";
 
+}
 function openFullscreen() {
   if (document.documentElement.requestFullscreen) {
-    document.documentElement.requestFullscreen();
-  } else if (document.documentElement.webkitRequestFullscreen) { /* Safari */
-    document.documentElement.webkitRequestFullscreen();
-  } else if (document.documentElement.msRequestFullscreen) { /* IE11 */
-    document.documentElement.msRequestFullscreen();
+      document.documentElement.requestFullscreen();
   }
+  else if (document.documentElement.webkitRequestFullscreen) { /* Safari */
+      document.documentElement.webkitRequestFullscreen();
+  }
+  else if (document.documentElement.msRequestFullscreen) { /* IE11 */
+      document.documentElement.msRequestFullscreen();
+  }
+  document.getElementsByTagName("nav")[0].style.display = "none";
+  document.getElementById("fullscreen-button").style.top = "10px";
+  document.getElementById("editor").style.height = "100%";
+  document.getElementById("editor").style.bottom = "0px";
 }
 
 
