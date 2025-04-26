@@ -1,5 +1,5 @@
 # Walkers
-This was my old submission for blot, reimagined and recoded: First using p5js (CPU), then ported to run on the gpu using webgl.
+This was my old [submission for blot](https://blot.hackclub.com/editor?src=https://raw.githubusercontent.com/hackclub/blot/main/art/Walkers-ChristopherBody/index.js), reimagined and recoded: First using p5js (CPU), then ported to run on the gpu using webgl.
 It works essentially as a kind of physics simulation. You define a 3d mathematical surface (or SDF), and the simulated 'walkers' walk down the slope.
 
 For an example of this, you can view a surface here:
