@@ -14,9 +14,9 @@ float sdf(vec2 pos) {
 You can see how the walkers traverse from the peaks (the dark areas) to the valleys.
 
 ## Links
- - [Walkers GPU](https://cookiemonsternz.github.io/walkersGPU/)
- - [Walkers CPU](https://cookiemonsternz.github.io/walkersCPU/)
- - [Walkers Auto](https://cookiemonsternz.github.io/auto/)
+ - [Walkers GPU](https://cookiemonsternz.github.io/walkersGPU/) - The GPU Port
+ - [Walkers CPU](https://cookiemonsternz.github.io/walkersCPU/) - Original rewritten p5js code (CPU)
+ - [Walkers Auto](https://cookiemonsternz.github.io/auto/) - p5js code (CPU) which automatically cycles through different sdf functions and color schemes
 ## Running Locally
 To run locally:
 
