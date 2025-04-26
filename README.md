@@ -1,9 +1,30 @@
-# God I hate writing readmes
-To run this locally, just clone it or download it. 
+# Walkers
+This was my old submission for blot, reimagined and recoded: First using p5js (CPU), then ported to run on the gpu using webgl.
+It works essentially as a kind of physics simulation. You define a 3d mathematical surface (or SDF), and the simulated 'walkers' walk down the slope.
 
-Then, you can run it using whatever server takes your fancy. I personally use Five Server for VSCode.
+For an example of this, you can view a surface here:
+https://www.desmos.com/3d/xkddysguta
+And if you replace the sdf function in [Walkers GPU](https://cookiemonsternz.github.io/walkersGPU/) with this:
+```
+float sdf(vec2 pos) {
+    float scale = 30.0;
+    return sin(pos.x * scale) + cos(pos.y * scale);
+}
+```
+You can see how the walkers traverse from the peaks (the dark areas) to the valleys.
 
-Anyways, as they say, a picture speaks a thousand words, so heres a bunch:
+## Links
+ - [Walkers GPU](https://cookiemonsternz.github.io/walkersGPU/)
+ - [Walkers CPU](https://cookiemonsternz.github.io/walkersCPU/)
+ - [Walkers Auto](https://cookiemonsternz.github.io/auto/)
+## Running Locally
+To run locally:
+
+- Clone or download the repo
+- Run the project with some form of server (I use [Five Server](https://marketplace.visualstudio.com/items?itemName=yandeu.five-server))
+- Navigate to [https://{ip}/walkersGPU/]()
+
+## Images
 ![image](https://github.com/user-attachments/assets/b0ade7de-4d8e-4ca6-af72-0d3d0e0d9889)
 ![image](https://github.com/user-attachments/assets/91130cbb-5c57-489d-82ec-adb446e670fd)
 ![image](https://github.com/user-attachments/assets/a178a278-ae3a-491b-be34-1081713dfd39)
