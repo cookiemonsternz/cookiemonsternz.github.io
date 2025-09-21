@@ -400,7 +400,8 @@ function extractFunctionBody(text) {
       return;
     }
     
-    let brightness = getPalleteBrightness(colors);
+    // let brightness = getPalleteBrightness(colors);
+    let brightness = 0;
     if (brightness < 127) {
       console.log("dark pallete");
       // If its a dark pallete, dark bg
@@ -543,3 +544,4 @@ function extractFunctionBody(text) {
     requestAnimationFrame(fade_bg.bind(null, i + 1));
 
   }
+
