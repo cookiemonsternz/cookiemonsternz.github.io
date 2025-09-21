@@ -339,18 +339,18 @@ function extractFunctionBody(text) {
   // Choices: monochrome monochrome-dark monochrome-light analogic complement analogic-complement triad 
   // Going for oceany themes
   let seeds = [
-    { color: "#002564", mode: "monochrome-dark" },
+    { color: "#002564", mode: "monochrome-light" },
     { color: "#248CC0", mode: "monochrome-dark" },
     { color: "#7AA9B3", mode: "monochrome-dark" },
     { color: "#008171", mode: "analogic" },
-    { color: "#004967", mode: "complement" },
+    { color: "#004967", mode: "analogic" },
     { color: "#003955", mode: "analogic-complement" },
-    { color: "#00112C", mode: "triad" },
+    { color: "#00112C", mode: "analogic-complement" },
     { color: "#14867B", mode: "monochrome-dark" },
     { color: "#003B73", mode: "analogic" },
-    { color: "#004A51", mode: "complement" },
+    { color: "#004A51", mode: "analogic" },
     { color: "#001737", mode: "monochrome-dark" },
-    { color: "#519AA8", mode: "triad" },
+    { color: "#519AA8", mode: "analogic" },
     { color: "#002B4F", mode: "analogic-complement" },
     { color: "#669B93", mode: "monochrome-dark" }
   ];
@@ -541,4 +541,5 @@ function extractFunctionBody(text) {
     console.log(bgColor.toString());
     background(bgColor.levels[0], bgColor.levels[1], bgColor.levels[2], step);
     requestAnimationFrame(fade_bg.bind(null, i + 1));
+
   }
